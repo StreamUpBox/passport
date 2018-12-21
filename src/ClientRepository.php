@@ -6,6 +6,7 @@ use RuntimeException;
 
 class ClientRepository
 {
+
     /**
      * Get a client by the given ID.
      *
@@ -109,6 +110,7 @@ class ClientRepository
      */
     public function create($userId, $name, $redirect, $client_avatar = '', $personalAccess = false, $password = false)
     {
+
         $client = Passport::client()->forceFill([
             'user_id' => $userId,
             'name' => $name,
@@ -134,7 +136,7 @@ class ClientRepository
      */
     public function createPersonalAccessClient($userId, $name, $redirect)
     {
-        return tap($this->create($userId, $name, $redirect, true,true), function ($client) {
+        return tap($this->create($userId, $name, $redirect, true, true), function ($client) {
             $accessClient = Passport::personalAccessClient();
             $accessClient->client_id = $client->id;
             $accessClient->save();

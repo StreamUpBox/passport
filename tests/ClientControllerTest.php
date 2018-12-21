@@ -10,6 +10,7 @@ class ClientControllerTest extends TestCase
         Mockery::close();
     }
 
+
     public function test_all_the_clients_for_the_current_user_can_be_retrieved()
     {
         $clients = Mockery::mock('Laravel\Passport\ClientRepository');

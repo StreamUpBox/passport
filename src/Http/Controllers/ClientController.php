@@ -16,6 +16,7 @@ class ClientController
      */
     protected $clients;
 
+
     /**
      * The validation factory implementation.
      *
@@ -64,7 +65,6 @@ class ClientController
             'name' => 'required|max:255',
             'redirect' => 'required|url',
         ])->validate();
-
         return $this->clients->create(
             $request->user()->getKey(),
             $request->name,
